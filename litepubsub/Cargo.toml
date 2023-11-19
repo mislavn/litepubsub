@@ -1,8 +1,11 @@
 [package]
-name = "litepubsub-tarpc"
+name = "litepubsub"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+serde = { version = "1.0.194", features = ["derive"] }
+tarpc = "0.34.0"
+thiserror = "1.0.56"

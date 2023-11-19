@@ -2,7 +2,5 @@
 resolver = "2"
 
 members = [
-    "litepubsub-core",
-    "litepubsub-tarpc",
-    "litepubsub-capnp",
+    "litepubsub",
 ]

@@ -1,0 +1,49 @@
+---
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.4.0
+      hooks:
+          - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-yaml
+          - id: check-added-large-files
+          - id: check-json
+          - id: check-toml
+          - id: mixed-line-ending
+
+    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+      rev: 0.2.2  # or other specific tag
+      hooks:
+          - id: yamlfmt
+            # yamlfmt will treat 'off' as bool, exclude files and run yamlfmt manually
+            exclude: (schema/preset.yaml|factory.yaml|boot.yaml)
+
+
+    - repo: https://github.com/humitos/mirrors-autoflake.git
+      rev: v1.1
+      hooks:
+          - id: autoflake
+            args: [--in-place, --remove-all-unused-imports, --remove-unused-variable]
+
+    - repo: https://github.com/PyCQA/isort
+      rev: 5.12.0
+      hooks:
+          - id: isort
+            args: [--profile, black, --line-length=79]
+
+    - repo: https://github.com/psf/black
+      rev: 23.1.0
+      hooks:
+          - id: black
+            args: [--line-length=79]
+
+    - repo: https://github.com/pycqa/flake8
+      rev: 6.0.0
+      hooks:
+          - id: flake8
+            exclude: dccp/notebooks/.jupyter
+
+    - repo: https://github.com/MarketSquare/robotframework-tidy
+      rev: 3.3.3
+      hooks:
+          - id: robotidy
